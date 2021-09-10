@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>
+            Car Dekho
+        </title>
+        <style>
+            body
+            {
+            background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../static/Cars1.jpg);
+	        background-position: center;
+	        background-size: cover;
+            }
+            form
+             {
+            padding-top: 10%;
+            max-width: 60%;
+            padding-left: 30%;
+            }
+            ul li{
+            display: inline;
+            }
+            
+            
+            label
+            {
+                color:white;
+            }
+        </style>
+    </head>
+    <body>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <div class="full body"></div>
+        <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Car Dekho</a>
+            <div class="collapse navbar-collapse">
+        
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li class="active"><a href="/aboutus/">About us </a></li>
+                <li class="active"><a href="#">Contact us</a></li>
+                <li class="active"><a href="/oldcar/"><a href="/filterold/">old car</a></a></li>
+            </ul>
+            
+            <form class="navbar-form navbar-left" method="POST" action="/api/">
+                <div class="form-group">
+                <input class="form-control" placeholder="company name" type="text" name="make">
+                <input class="form-control" placeholder="Year" type="text" name="year">
+                <input type="submit">
+            </div>
+            </form>
+            </div>
+        </div>
+        </div>
+       
+            <form method="POST" action="/aftersubmitnew/" >
+            <h1><p class="text-primary">Choose your Dream car here</p></h1>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Company</label>
+                <select name="company" class="form-control" id="exampleFormControlSelect1">
+                    <option >By company</option>
+                    {% for c in company %}
+                        <option >{{c}}</option>
+                    {% endfor %}
+                </select>
+              </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Fuel</label>
+              <select name="fuel" class="form-control" id="exampleFormControlSelect1">
+                <option >Fuel type</option>
+                            {% for f in fuel %}
+                                <option >{{f}}</option>
+                            {% endfor %}
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Type</label>
+                <select name="emission" class="form-control" id="exampleFormControlSelect1">
+                    <option >Type</option>
+                    {% for e in emission %}
+                        <option >{{e}}</option>
+                    {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Seating Capacity</label>
+                <select name="seat" class="form-control" id="exampleFormControlSelect1">
+                    <option >Seater Available</option>
+                    {% for s in seat %}
+                        <option >{{s}}</option>
+                    {% endfor %}
+                </select>
+            
+              </div>
+              
+              <div class="form-submit">
+                <input type="submit" name="submit" id="submit" class="submit" value="Submit" />
+            </div>
+        
+        </form>
+    
+        
+          
+          
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
